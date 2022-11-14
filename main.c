@@ -56,9 +56,17 @@ int main()
     square_matrix(matrix_dif, n, n);
     print_matrix(matrix_dif, n, n);
 
+    printf("\nmatrix multiply: \n");
+    int dim_xc = 0;
+    int dim_yc = 0;
+    int** matrix_c = matrix_multiple(mat, n, n, mat, n, n, &dim_xc, &dim_yc);
+    print_matrix(matrix_c, dim_xc, dim_yc);
+
+
     free_nxn_matrix(matrix, n);
     free_nxn_matrix(matrix_sum, n);
     free_nxn_matrix(matrix_dif, n);
     free_matrix(mat, n, n);
+    free_matrix(matrix_c, dim_xc, dim_yc);
     return 0;
 }

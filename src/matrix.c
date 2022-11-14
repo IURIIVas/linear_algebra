@@ -175,3 +175,29 @@ void square_matrix(int** matrix, int dim_x, int dim_y)
     }
 }
 
+int** matrix_multiple(int** matrix_a, int dim_xa, int dim_ya, int** matrix_b, int dim_xb, int dim_yb,
+                      int* dim_xc, int* dim_yc)
+{
+    if (dim_xa != dim_yb)
+    {
+        printf("columns size of first matrix must be equal to rows size of second matrix");
+        return NULL;
+    }
+
+    *dim_xc = fmin(dim_xa, dim_xb);
+    *dim_yc = fmin(dim_ya, dim_yb);
+    int** matrix_c = init_matrix(*dim_xc, *dim_yc);
+    for (int i = 0; i < *dim_xc; i++)
+    {
+        for (int j = 0; j < *dim_yc; j++)
+        {
+            matrix_c[i][j] = 0;
+            for (int k = 0; k < dim_ya; k++)
+            {
+                matrix_c[i][j] += matrix_a[i][k] * matrix_b[k][j];
+            }
+        }
+    }
+
+    return matrix_c;
+}

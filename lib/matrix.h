@@ -12,3 +12,5 @@ void multiple_matrix_num(int*** matrix, int dim_x, int dim_y, int number);
 void square_matrix(int** matrix, int dim_x, int dim_y);
 int** add_matrix(int** A, int** B, int** result_matrix, int dim_x, int dim_y);
 int** sub_matrix(int** A, int** B, int** result_matrix, int dim_x, int dim_y);
+int** matrix_multiple(int** matrix_a, int dim_xa, int dim_ya, int** matrix_b, int dim_xb, int dim_yb,
+                      int* dim_xc, int* dim_yc);
