@@ -1,7 +1,10 @@
 #include "lib/matrix.h"
+#include "lib/vector.h"
 #include <stdio.h>
+#include <malloc.h>
 
-int main()
+
+void matrix_test()
 {
     int n = 4;
     printf("matrix: \n");
@@ -68,5 +71,46 @@ int main()
     free_nxn_matrix(matrix_dif, n);
     free_matrix(mat, n, n);
     free_matrix(matrix_c, dim_xc, dim_yc);
+}
+
+void vector_test()
+{
+    vector2d* a = vector2d_init();
+    a->x = 3; a->y = 5;
+    vector2d* b = vector2d_init();
+    b->x = 2; b->y = -3;
+    
+    printf("vector a: \n");
+    print_vector2d(a);
+
+    printf("\nvector b: \n");
+    print_vector2d(b);
+
+    printf("\nmodule vector b: \n");
+    printf("%.2lf\n", vector2d_module(b));
+
+    printf("\na + b: \n");
+    vector2d* sum = vector2d_sum(a, b);
+    print_vector2d(sum);
+
+    printf("\na - b: \n");
+    vector2d* sub = vector2d_sub(a, b);
+    print_vector2d(sub);
+
+    printf("\na*k: \n");
+    int k = 3;
+    vector2d_mul(a, k);
+    print_vector2d(a);
+
+    free(a);
+    free(b);
+    free(sum);
+    free(sub);
+}
+
+int main()
+{
+    // matrix_test();
+    vector_test();
     return 0;
 }

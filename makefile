@@ -1,9 +1,9 @@
 CC=gcc
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -g
 LDFLAGS=
-SOURCES=main.c ./src/matrix.c
+SOURCES=main.c ./src/matrix.c ./src/vector.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=matrix
+EXECUTABLE=test
 
 all: $(SOURCES) $(EXECUTABLE)
 	
